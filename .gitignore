@@ -1,0 +1,56 @@
+# Miscellaneous
+*.class
+*.lock
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be tracked, but the tool SDK path is not.
+.vscode/settings.json
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+pubspec.lock
+.packages
+pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Android related
+**/android/.gradle
+**/android/gradle-wrapper.jar
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/.idea
+**/android/local.properties
+**/android/key.properties
+**/android/app/keystore.jks
+
+# Android/Gradle generated scaffolding (CI regenerates it, see docs/APK_BUILD.md)
+android/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Coverage
+coverage/
