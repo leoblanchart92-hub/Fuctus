@@ -59,7 +59,6 @@ class _CharacterViewState extends State<CharacterView>
   Widget build(BuildContext context) {
     return CustomPaint(
       painter: _JarvisScenePainter(animator: widget.animator),
-      fit: ui.BoxFit.contain,
     );
   }
 }

@@ -10,7 +10,7 @@ library;
 
 import 'dart:math' as math;
 import 'dart:ui' as ui;
-import 'package:flutter/painting.dart';
+import 'package:flutter/material.dart';
 
 import '../jarvis_3d/humanoid_rig.dart';
 import '../jarvis_3d/math3d.dart';

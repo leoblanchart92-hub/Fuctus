@@ -1,4 +1,5 @@
 import 'dart:math' as math;
+import 'dart:ui' as ui;
 
 import 'package:flutter_test/flutter_test.dart';
 
@@ -54,7 +55,7 @@ void main() {
       position: const Vec3(0, 1.3, 3.0),
       target: const Vec3(0, 1.0, 0),
     );
-    const viewport = Size(400, 800);
+    const viewport = ui.Size(400, 800);
 
     test('projecting the target lands near the screen anchor', () {
       final p = camera.project(const Vec3(0, 1.0, 0), viewport);

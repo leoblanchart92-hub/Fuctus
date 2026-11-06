@@ -30,7 +30,7 @@ void main() {
     test('answers with time and date', () async {
       final result = await TimeSkill().handle('quelle heure est-il', context);
       expect(result.text, contains('h'));
-      expect(result.text.toLowerCase(), contains(RegExp(r'janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre')));
+      expect(RegExp(r'janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre').hasMatch(result.text.toLowerCase()), isTrue);
     });
   });
 
