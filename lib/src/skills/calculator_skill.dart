@@ -43,11 +43,18 @@ class CalculatorSkill extends JarvisSkill {
       RegExp(r'(\d+(?:[.,]\d+)?)\s*%\s*(de|of|x|\*)\s*(\d+(?:[.,]\d+)?)'),
       (m) => '${m.group(1)} / 100 * ${m.group(3)}',
     );
+    // French multiplication word "fois": "17 fois 23" → "17 * 23"
+    expr = expr.replaceAllMapped(
+      RegExp(r'(\d+(?:[.,]\d+)?)\s*fois\s*(\d+(?:[.,]\d+)?)', caseSensitive: false),
+      (m) => '${m.group(1)} * ${m.group(2)}',
+    );
     // "x" as multiplication when surrounded by digits
     expr = expr.replaceAllMapped(
       RegExp(r'(\d)\s*[xX]\s*(\d)'),
       (m) => '${m.group(1)} * ${m.group(2)}',
     );
+    // drop anything that is not math (question marks, quotes…)
+    expr = expr.replaceAll(RegExp(r'[^0-9a-zA-Z+\-*/×÷^%()., ]'), ' ');
     expr = expr.trim();
     if (expr.isEmpty) {
       return const SkillResult('Quelle expression souhaitez-vous que je calcule ?', isError: true);

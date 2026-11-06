@@ -24,8 +24,8 @@ class NotesSkill extends JarvisSkill {
   @override
   Future<SkillResult> handle(String utterance, SkillContext context) async {
     if (RegExp(r'(mes notes|liste mes notes|affiche mes notes)').hasMatch(utterance)) {
-      final notes = await context.memory.search('note', limit: 50);
-      final actual = notes.where((n) => n.kind == 'note').take(10).toList();
+      final all = await context.memory.all(limit: 100);
+      final actual = all.where((n) => n.kind == 'note').take(10).toList();
       if (actual.isEmpty) {
         return const SkillResult('Aucune note enregistrée pour l’instant. Dites « Note : … » pour commencer.');
       }
@@ -37,7 +37,7 @@ class NotesSkill extends JarvisSkill {
     }
 
     if (RegExp(r'(efface|supprime) mes notes').hasMatch(utterance)) {
-      final notes = await context.memory.search('note', limit: 100);
+      final notes = await context.memory.all(limit: 200);
       var deleted = 0;
       for (final n in notes.where((n) => n.kind == 'note')) {
         final id = n.id;
