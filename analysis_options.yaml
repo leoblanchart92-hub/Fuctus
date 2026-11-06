@@ -1,0 +1,13 @@
+include: package:flutter_lints/flutter_lints.yaml
+
+linter:
+  rules:
+    avoid_print: false
+    prefer_const_constructors: true
+    prefer_final_fields: true
+    unnecessary_null_comparison: true
+
+analyzer:
+  errors:
+    # Le CI exécute `flutter analyze --fatal-infos` : gardons le code strict.
+    todo: ignore
